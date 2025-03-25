@@ -1,3 +1,5 @@
+RONOT Martin
+
 # Exercice Design Pattern
 
 ## Résumé des exercices
