@@ -13,4 +13,4 @@ Créer un Query Builder qui permet de construire des requêtes SQL de manière p
 
 ## Aller plus loin
 
-- Créez un classe litteralBuilder qui écrit en français la requete (Je selection les champs ... de la table ... où ...)
+- Créez un classe litteralBuilder qui écrit en français la requete (Je selectionne les champs ... de la table ... où ...)

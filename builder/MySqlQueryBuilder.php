@@ -1,40 +1,34 @@
 <?php
 
-namespace App;
+require_once 'QueryBuilder.php';
 
-class MySQLQueryBuilder implements QueryBuilderInterface
-{
+class MySqlQueryBuilder implements QueryBuilder {
     private array $fields = [];
     private string $table = '';
     private array $conditions = [];
     private ?int $limit = null;
 
-    public function select(array $fields): QueryBuilderInterface
-    {
+    public function select(array $fields): QueryBuilder {
         $this->fields = $fields;
         return $this;
     }
 
-    public function from(string $table): QueryBuilderInterface
-    {
+    public function from(string $table): QueryBuilder {
         $this->table = $table;
         return $this;
     }
 
-    public function where(string $condition): QueryBuilderInterface
-    {
+    public function where(string $condition): QueryBuilder {
         $this->conditions[] = $condition;
         return $this;
     }
 
-    public function limit(int $limit): QueryBuilderInterface
-    {
+    public function limit(int $limit): QueryBuilder {
         $this->limit = $limit;
         return $this;
     }
 
-    public function getQuery(): string
-    {
+    public function getQuery(): string {
         $query = "SELECT " . ($this->fields ? implode(', ', $this->fields) : '*');
         $query .= " FROM " . $this->table;
         

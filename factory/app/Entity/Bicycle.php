@@ -2,20 +2,24 @@
 
 namespace App\Entity;
 
-class Bicycle {
-    private $costPerKm;
-    private $fuelType;
+class Bicycle implements VehicleInterface
+{
+    private float $costPerKm;
+    private float $maxWeight;
 
-    public function __construct($costPerKm, $fuelType) {
+    public function __construct(float $costPerKm = 0.0, float $maxWeight = 20.0)
+    {
         $this->costPerKm = $costPerKm;
-        $this->fuelType = $fuelType;
+        $this->maxWeight = $maxWeight;
     }
 
-    public function getCostPerKm() {
+    public function getCostPerKm(): float
+    {
         return $this->costPerKm;
     }
 
-    public function getFuelType() {
-        return $this->fuelType;
+    public function getMaxWeight(): float
+    {
+        return $this->maxWeight;
     }
 }
